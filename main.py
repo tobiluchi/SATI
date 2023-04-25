@@ -4,22 +4,14 @@ import numpy as np
 
 video_capture = cv2.VideoCapture(0)
 
-# Load a sample picture and learn how to recognize it.
-obama_image = face_recognition.load_image_file("obama.jpg")
-obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+estevez_image = face_recognition.load_image_file("estevez.jpeg")
+estevez_face_encoding = face_recognition.face_encodings(estevez_image)[0]
 
-# Load a second sample picture and learn how to recognize it.
-biden_image = face_recognition.load_image_file("biden.jpg")
-biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
-
-# Create arrays of known face encodings and their names
 known_face_encodings = [
-    obama_face_encoding,
-    biden_face_encoding
+    estevez_face_encoding
 ]
 known_face_names = [
-    "Barack Obama",
-    "Joe Biden"
+    "Manuel Estevez (CEO)"
 ]
 
 # Initialize some variables
@@ -85,7 +77,6 @@ while True:
     # Display the resulting image
     cv2.imshow('Video', frame)
 
-    # Hit 'q' on the keyboard to quit!
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
